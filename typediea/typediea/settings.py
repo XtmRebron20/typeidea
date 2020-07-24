@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'kbi3q22=$er5hq3x&3^i1bo153s4@1q$z8t9vvw05yhk$fwto='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-'''DEBUG = True'''
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #我的APP
+    'blog',
+    'config',
+    'comment',
 ]
 
 MIDDLEWARE = [
@@ -73,12 +77,12 @@ WSGI_APPLICATION = 'typediea.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}'''
+}
 
 
 # Password validation

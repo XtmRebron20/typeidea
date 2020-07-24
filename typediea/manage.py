@@ -4,10 +4,13 @@ import os
 import sys
 
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "typediea.settings")
+
+
 def main():
-    #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'typediea.settings')
-    profile = os.environ.setdefault('TYPEIDEA_PROFILE', 'develop')
-    os.environ.setdefault(" DJANGO_SETTINGS_MODULE","typeidea.settings.%s" % profile)
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'typediea.settings')
+    #profile = os.environ.setdefault('TYPEIDEA_PROFILE', 'develop')
+    #os.environ.setdefault(" DJANGO_SETTINGS_MODULE","typeidea.settings.%s" % profile)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
