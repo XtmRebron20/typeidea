@@ -16,17 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 
-from blog.views import post_list, post_detail
+#from blog.views import post_list
+from blog.views import IndexView,CategoryView,TagView,PostDetailView
 from config.views import links
 #from typediea.custom_site import custom_site
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',post_list),
-    re_path('category/(?P<category_id>\d+)/',post_list),
-    re_path('tag/(?P<tag_id>\d+)/',post_list),
-    re_path('post/(?P<post_id>\d+).html', post_detail),
-    path('links/',links),
-    path('super_admin/',admin.site.urls),
-    #path('admin/',custom_site.urls),
+    path('', IndexView.as_view(), name='index'),
+    re_path('category/(?P<category_id>\d+)/', CategoryView.as_view(),
+            name='category-list'),
+    re_path('tag/(?P<tag_id>\d+)/', TagView.as_view(), name='tag_list'),
+    re_path('post/(?P<post_id>\d+).html', PostDetailView.as_view(), 
+            name='post-detail'),
+    path('links/', links, name='links'),
+    path('super_admin/', admin.site.urls, name='super-admin'),
 ]
